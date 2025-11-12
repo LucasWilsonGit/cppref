@@ -31,5 +31,23 @@ end
 
 os.execute("xdg-open " .. page)
 
+local function parse_version(version_str) 
+	local major, minor, patch = version_str:gmatch("(%d+)%.(%d+)%.(%d+)")()
+
+	major = tonumber(major)
+	minor = tonumber(minor)
+	patch = tonumber(patch)
+	summed = patch * 100 + minor * 100 * 1000 + major * 100 * 1000 * 1000
+	return summed
+end
+
 -- TODO: raw version check
--- local body,code = https.request("
+local LOCAL_VERSION = parse_version("0.1.0")
+local body,code = https.request("https://raw.githubusercontent.com/LucasWilsonGit/cppref/refs/heads/main/version.txt")
+if code == 200 then
+	body = body:gsub("\n","")
+	local version = parse_version(body)
+	if version > LOCAL_VERSION then
+		print("cppref: An update is available (v" .. body .. ")")
+	end
+end
