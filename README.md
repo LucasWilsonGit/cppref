@@ -24,4 +24,4 @@ Will open the cppreference page for any known matching entry, e.g. `cppref unord
 
 ## Contributing 
 
-Feel free to fork or make pull requests, within the terms of the license. 
+Feel free to fork, I am somewhat unlikely to frequently update this unless cppreference changes and the web scraping breaks. Do open issues if you find pages on the site which cannot be picked up in the tool. Note that some such as operator[] may instead be operator_at, e.g. `vector::operator_at` 
