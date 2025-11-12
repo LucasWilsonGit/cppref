@@ -3,8 +3,7 @@ A small Lua-based command line tool for quickly accessing cppreference without h
 
 ## Installation
 
-This tool requires Lua and Luarocks as it was initially written for Vim Lua. 
-It will require you to install some libraries:
+This tool is Lua based and I recommend Luarocks for installing the following dependencies:
 ```
 socket.http
 socket.url
